@@ -33,7 +33,7 @@
     "oauth2" : [ "ROLE_CLIENT", "ROLE_USER" ]
   } ],
   "paths" : {
-    "/oauth2/token" : {
+    "https://api.xbrl.us/oauth2/token" : {
       "summary" : "Aquire an access token by fulfilling a client_credentials grant, or a password grant",
       "post" : {
         "operationId" : "tokenUrl",
@@ -123,7 +123,7 @@
         }
       }
     },
-    "/api/v1/fact/search" : {
+    "https://api.xbrl.us/api/v1/fact/search" : {
       "summary" : "Request facts from XBRL filings based on search parameters.",
       "get" : {
         "operationId" : "getFactDetails",
@@ -292,7 +292,7 @@
         }
       }
     },
-    "/api/v1/fact/{fact.id}" : {
+    "https://api.xbrl.us/api/v1/fact/{fact.id}" : {
       "summary" : "Request fact from XBRL filings based on its unique fact identifier.",
       "get" : {
         "operationId" : "getFactBasedOnFactID",
@@ -357,7 +357,7 @@
         }
       }
     },
-    "/api/v1/fact/oim/search" : {
+    "https://api.xbrl.us/api/v1/fact/oim/search" : {
       "summary" : "Request facts from XBRL filings based on search parameters.",
       "get" : {
         "operationId" : "getFactDetailsInOIMFormat",
@@ -485,7 +485,7 @@
         }
       }
     },
-    "/api/v1/report/search" : {
+    "https://api.xbrl.us/api/v1/report/search" : {
       "summary" : "Request facts from XBRL filings based on search parameters.",
       "get" : {
         "operationId" : "getReportDetails",
@@ -581,7 +581,7 @@
         }
       }
     },
-    "/api/v1/report/{report.id}" : {
+    "https://api.xbrl.us/api/v1/report/{report.id}" : {
       "summary" : "Request report from XBRL filings based on report id parameters.",
       "get" : {
         "operationId" : "getReportDetailsById",
@@ -647,7 +647,7 @@
         }
       }
     },
-    "/api/v1/report/{report.id}/fact/search" : {
+    "https://api.xbrl.us/api/v1/report/{report.id}/fact/search" : {
       "summary" : "Request report from XBRL filings based on report id parameters.",
       "get" : {
         "operationId" : "getReportFactDetailsById",
@@ -797,7 +797,7 @@
         }
       }
     },
-    "/api/v1/report/fact/search" : {
+    "https://api.xbrl.us/api/v1/report/fact/search" : {
       "summary" : "Request report from XBRL filings based on report id parameters.",
       "get" : {
         "operationId" : "getReportFactDetailsBySearch",
@@ -951,7 +951,7 @@
         }
       }
     },
-    "/api/v1/entity/{entity.id}/report/search" : {
+    "https://api.xbrl.us/api/v1/entity/{entity.id}/report/search" : {
       "summary" : "Request entity information based on the entity identifier. The entity ID is an internal id used by the API.",
       "get" : {
         "operationId" : "getEntityReportDetailsBasedOnID",
@@ -1045,7 +1045,7 @@
         }
       }
     },
-    "/api/v1/entity/report/search" : {
+    "https://api.xbrl.us/api/v1/entity/report/search" : {
       "summary" : "Request facts from XBRL filings based on search parameters.",
       "get" : {
         "operationId" : "getEntityReportDetails",
@@ -1139,7 +1139,7 @@
         }
       }
     },
-    "/api/v1/entity/{entity.id}" : {
+    "https://api.xbrl.us/api/v1/entity/{entity.id}" : {
       "summary" : "Request entity information based on the entity identifier. The entity ID is an internal id used by the API.",
       "get" : {
         "operationId" : "getEntityDetailsBasedOnID",
@@ -1205,7 +1205,7 @@
         }
       }
     },
-    "/api/v1/assertion/search" : {
+    "https://api.xbrl.us/api/v1/assertion/search" : {
       "summary" : "Request errors from XBRL filings based on search parameters.",
       "get" : {
         "operationId" : "getAssertionDetails",
@@ -1285,7 +1285,7 @@
         }
       }
     },
-    "/api/v1/assertion/validate" : {
+    "https://api.xbrl.us/api/v1/assertion/validate" : {
       "summary" : "Request errors from XBRL filings based on search parameters.",
       "post" : {
         "operationId" : "validateFiling",
@@ -1358,7 +1358,7 @@
         }
       }
     },
-    "/api/v1/dts/search" : {
+    "https://api.xbrl.us/api/v1/dts/search" : {
       "summary" : "Used to search taxonomies (dts) used in filings.  Each dts represents a unique identifier for a collection of taxonomy schema used by .",
       "get" : {
         "operationId" : "getDTSDetails",
@@ -1431,7 +1431,7 @@
         }
       }
     },
-    "/api/v1/dts/{dts.id}/concept/search" : {
+    "https://api.xbrl.us/api/v1/dts/{dts.id}/concept/search" : {
       "summary" : "Request errors from XBRL filings based on search parameters.",
       "get" : {
         "operationId" : "getConceptDetailsByDTS",
@@ -1509,7 +1509,7 @@
         }
       }
     },
-    "/api/v1/dts/{dts.id}/concept/{concept.local-name}" : {
+    "https://api.xbrl.us/api/v1/dts/{dts.id}/concept/{concept.local-name}" : {
       "summary" : "Request errors from XBRL filings based on search parameters.",
       "get" : {
         "operationId" : "getConceptDetailsByDTSAndLocalName",
@@ -1584,7 +1584,7 @@
         }
       }
     },
-    "/api/v1/dts/{dts.id}/concept/{concept.local-name}/label" : {
+    "https://api.xbrl.us/api/v1/dts/{dts.id}/concept/{concept.local-name}/label" : {
       "summary" : "Request errors from XBRL filings based on search parameters.",
       "get" : {
         "operationId" : "getLabelDetailsByDTSAndLocalName",
@@ -1659,7 +1659,7 @@
         }
       }
     },
-    "/api/v1/dts/{dts.id}/concept/{concept.local-name}/reference" : {
+    "https://api.xbrl.us/api/v1/dts/{dts.id}/concept/{concept.local-name}/reference" : {
       "summary" : "Request errors from XBRL filings based on search parameters.",
       "get" : {
         "operationId" : "getReferenceDetailsByDTSAndLocalName",
@@ -1734,7 +1734,7 @@
         }
       }
     },
-    "/api/v1/dts/{dts.id}/network" : {
+    "https://api.xbrl.us/api/v1/dts/{dts.id}/network" : {
       "summary" : "Request network from XBRL filings based on a provided dts.",
       "get" : {
         "operationId" : "getNetworkDetailsByDTS",
@@ -1800,7 +1800,7 @@
         }
       }
     },
-    "/api/v1/dts/{dts.id}/network/search" : {
+    "https://api.xbrl.us/api/v1/dts/{dts.id}/network/search" : {
       "summary" : "Request network details from XBRL filings based on a provided dts.",
       "get" : {
         "operationId" : "getNetworkDetailsWithSearchByDTS",
@@ -1896,7 +1896,7 @@
         }
       }
     },
-    "/api/v1/concept/search" : {
+    "https://api.xbrl.us/api/v1/concept/search" : {
       "summary" : "Request errors from XBRL filings based on search parameters.",
       "get" : {
         "operationId" : "getConceptDetails",
@@ -1967,7 +1967,7 @@
         }
       }
     },
-    "/api/v1/concept/{concept.local-name}/search" : {
+    "https://api.xbrl.us/api/v1/concept/{concept.local-name}/search" : {
       "summary" : "Request errors from XBRL filings based on search parameters.",
       "get" : {
         "operationId" : "getConceptDetailsByName",
@@ -2047,7 +2047,7 @@
         }
       }
     },
-    "/api/v1/label/{dts.id}/search" : {
+    "https://api.xbrl.us/api/v1/label/{dts.id}/search" : {
       "summary" : "Request errors from XBRL filings based on search parameters.",
       "get" : {
         "operationId" : "getlabelsBasedOnDTS",
@@ -2124,7 +2124,7 @@
         }
       }
     },
-    "/api/v1/label/search" : {
+    "https://api.xbrl.us/api/v1/label/search" : {
       "summary" : "Request errors from XBRL filings based on search parameters.",
       "get" : {
         "operationId" : "getlabels",
@@ -2203,7 +2203,7 @@
         }
       }
     },
-    "/api/v1/network/{network.id}/relationship/search" : {
+    "https://api.xbrl.us/api/v1/network/{network.id}/relationship/search" : {
       "summary" : "Request errors from XBRL filings based on search parameters.",
       "get" : {
         "operationId" : "getNetworkRelationships",
@@ -2303,7 +2303,7 @@
         }
       }
     },
-    "/api/v1/network/relationship/search" : {
+    "https://api.xbrl.us/api/v1/network/relationship/search" : {
       "summary" : "Request networks and relationships from XBRL filings based on search parameters.",
       "get" : {
         "operationId" : "getNetworkRelationshipsNoID",
@@ -2395,7 +2395,7 @@
         }
       }
     },
-    "/api/v1/network/{network.id}" : {
+    "https://api.xbrl.us/api/v1/network/{network.id}" : {
       "summary" : "Request networks  from XBRL filings based on search parameters.",
       "get" : {
         "operationId" : "getNetworkOnID",
@@ -2462,7 +2462,7 @@
         }
       }
     },
-    "/api/v1/relationship/search" : {
+    "https://api.xbrl.us/api/v1/relationship/search" : {
       "summary" : "Request networks and relationships from XBRL filings based on search parameters.",
       "get" : {
         "operationId" : "getRelationships",
@@ -2552,7 +2552,7 @@
         }
       }
     },
-    "/api/v1/relationship/tree/search" : {
+    "https://api.xbrl.us/api/v1/relationship/tree/search" : {
       "summary" : "Request networks and relationships from XBRL filings based on search parameters.",
       "get" : {
         "operationId" : "getRelationshipsAsTree",
@@ -2651,7 +2651,7 @@
         }
       }
     },
-    "/api/v1/document/search" : {
+    "https://api.xbrl.us/api/v1/document/search" : {
       "summary" : "Request networks and relationships from XBRL filings based on search parameters.",
       "get" : {
         "operationId" : "getDocumentInfo",
@@ -2722,7 +2722,7 @@
         "type" : "oauth2",
         "flows" : {
           "password" : {
-            "tokenUrl" : "/oauth2/token"
+            "tokenUrl" : "https://api.xbrl.us/oauth2/token"
           }
         }
       },
