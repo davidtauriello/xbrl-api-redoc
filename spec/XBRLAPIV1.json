@@ -2,9 +2,9 @@
   "openapi" : "3.0.0",
   "servers" : [ {
     "description" : "Running this application XBRL US server",
-    "url" : "https://api.xbrl.us"
+    "url" : "//api.xbrl.us"
   } ],
-  "info" : {
+  "info" : [
     "version" : "V1",
     "title" : "XBRL US API",
     "description" : "This API defines the XBRL US API. \n\n## Authorization Flow\n\nWe use [OAuth2 JWT](https://jwt.io/) flows to secure interactions.\n\n## Example Interactions\n\nIn this section, we will provide __CURL__ examples for typical __XBRL US API__ flows. Because XBRL US API is sessionless, each \"session\" will always begin with the [OAuth2 JWT Access Token Flow](https://jwt.io/introduction).\n\n### Access Token Flow\n\nThis flow shows the steps required to interact with the API\n\n1. Send an HTTP `POST` request to the tokenUrl: `/oauth2/token`:\n  ```http\n  POST /oauth2/token HTTP/1.1 \n  Host: <api.xbrl.us> \n  Content-Type: application/x-www-form-urlencoded \n  Body: {\n    \"grant_type\": password,\n    \"client_id\": \"XBRL US Client\",\n    \"client_secret\": \"client secret\",\n    \"username\": \"username\",\n    \"password\": \"password\",\n    \"platform\": pc\n  }\n  ```\n2. Upon a successful authorization grant, the server will respond with an `access_token`:\n  ```http\n  HTTP/1.1 200 OK\n  Request URL: <example.com>/oauth2/token\n  Date: <EEE, dd MMM yyyy HH:mm:ss z>\n  Content-Length: 500\n  Body: {\n    \"platform\": \"pc\",\n    \"access_token\": \"eyJ...124nOvc\",\n    \"refresh_token\": \"eyJ...124nOvc\",\n    \"expires_in\" : 3600,\n    \"refresh_token_expires_in\": 10800,\n    \"token_type\": \"bearer\"\n  }\n  ```\n3. Add a new `Authorization` header with type `Bearer` and the contents of the above `access_token`\n  ```http\n  GET </some/route> HTTP/1.1\n  Host: <api.xbrl.us> \n  Authorization: Bearer yJ...124nOvc\n  Content-Type: application/json; charset=utf-8 \n  Body: <...>\n  ```\n\nOnce an `access_token` has been acquired, use it until it returns a `401`. If this occurs, simply request a new token using the credentials from before. \n",
@@ -12,7 +12,7 @@
       "name" : "xbrl.us",
       "email" : "support@xbrl.us"
     }
-  },
+  ],
   "tags" : [ {
     "name" : "oauth2",
     "description" : "Operations to request authorization, receive tokens, and check tokens"
@@ -33,7 +33,7 @@
     "oauth2" : [ "ROLE_CLIENT", "ROLE_USER" ]
   } ],
   "paths" : {
-    "https://api.xbrl.us/oauth2/token" : {
+    "//api.xbrl.us/oauth2/token" : {
       "summary" : "Aquire an access token by fulfilling a client_credentials grant, or a password grant",
       "post" : {
         "operationId" : "tokenUrl",
@@ -123,7 +123,7 @@
         }
       }
     },
-    "https://api.xbrl.us/api/v1/fact/search" : {
+    "//api.xbrl.us/api/v1/fact/search" : {
       "summary" : "Request facts from XBRL filings based on search parameters.",
       "get" : {
         "operationId" : "getFactDetails",
@@ -131,7 +131,7 @@
         "security" : [ {
           "bearerAuth" : [ ]
         } ],
-        "description" : "Allows searching for _XBRL facts_ based on the attributes of the fact, the report it was in or the source of the data.\n## Examples\n\n### _-Get all the facts in a document_\n\n\nThe following call will get all facts in the report with an id of `226471`. It also limits the records returned to `1010` facts, sorts by the concept name and will return the following values:\n  * entity.name\n  * dimensions.count\n  * dimensions\n  * entity.cik\n  * period.fiscal-period\n  * period.end\n  * period.instant\n  * period.year\n  * concept.local-name.sort(ASC)\n  * fact.numerical-value,fact.limit(1010)\n  * fact.value,report.source-id\n  * footnote.text\n  * footnote.role\n\n        https://api.xbrl.us/api/v1/fact/search?report.id=226471&fields=entity.name,dimensions.count,dimensions,entity.cik,period.fiscal-period,period.end,period.instant,period.year,concept.local-name.sort(ASC),fact.numerical-value,fact.limit(1010),fact.value,report.source-id,footnote.text,footnote.role\n  \n\n### _-Get Operating Cash used by Pharma for the 2017 year_\n\nThe following call will get all facts reported for the 2017 year using the concept  `NetCashProvidedByUsedInOperatingActivities` reported for the sic code  `3841` which have no dimensions. It also limits the records returned to `100` facts and will return the following values:\n  \n  * fact.numerical-value\n  * period.fiscal-year\n  * period.fiscal-period\n  \n        https://api.xbrl.us/api/v1/fact/search?period.fiscal-period=Y&fact.ultimus=true&report.sic-code=3841&concept.local-name=NetCashProvidedByUsedInOperatingActivities&period.fiscal-year=2017&dimensions.count=0&fields=fact.numerical-value,period.fiscal-year,period.fiscal-period,fact.limit(100)\n\n    \n",
+        "description" : "Allows searching for _XBRL facts_ based on the attributes of the fact, the report it was in or the source of the data.\n## Examples\n\n### _-Get all the facts in a document_\n\n\nThe following call will get all facts in the report with an id of `226471`. It also limits the records returned to `1010` facts, sorts by the concept name and will return the following values:\n  * entity.name\n  * dimensions.count\n  * dimensions\n  * entity.cik\n  * period.fiscal-period\n  * period.end\n  * period.instant\n  * period.year\n  * concept.local-name.sort(ASC)\n  * fact.numerical-value,fact.limit(1010)\n  * fact.value,report.source-id\n  * footnote.text\n  * footnote.role\n\n        //api.xbrl.us/api/v1/fact/search?report.id=226471&fields=entity.name,dimensions.count,dimensions,entity.cik,period.fiscal-period,period.end,period.instant,period.year,concept.local-name.sort(ASC),fact.numerical-value,fact.limit(1010),fact.value,report.source-id,footnote.text,footnote.role\n  \n\n### _-Get Operating Cash used by Pharma for the 2017 year_\n\nThe following call will get all facts reported for the 2017 year using the concept  `NetCashProvidedByUsedInOperatingActivities` reported for the sic code  `3841` which have no dimensions. It also limits the records returned to `100` facts and will return the following values:\n  \n  * fact.numerical-value\n  * period.fiscal-year\n  * period.fiscal-period\n  \n        //api.xbrl.us/api/v1/fact/search?period.fiscal-period=Y&fact.ultimus=true&report.sic-code=3841&concept.local-name=NetCashProvidedByUsedInOperatingActivities&period.fiscal-year=2017&dimensions.count=0&fields=fact.numerical-value,period.fiscal-year,period.fiscal-period,fact.limit(100)\n\n    \n",
         "parameters" : [ {
           "$ref" : "#/components/parameters/concept.id_Param"
         }, {
@@ -292,7 +292,7 @@
         }
       }
     },
-    "https://api.xbrl.us/api/v1/fact/{fact.id}" : {
+    "//api.xbrl.us/api/v1/fact/{fact.id}" : {
       "summary" : "Request fact from XBRL filings based on its unique fact identifier.",
       "get" : {
         "operationId" : "getFactBasedOnFactID",
@@ -357,7 +357,7 @@
         }
       }
     },
-    "https://api.xbrl.us/api/v1/fact/oim/search" : {
+    "//api.xbrl.us/api/v1/fact/oim/search" : {
       "summary" : "Request facts from XBRL filings based on search parameters.",
       "get" : {
         "operationId" : "getFactDetailsInOIMFormat",
@@ -485,7 +485,7 @@
         }
       }
     },
-    "https://api.xbrl.us/api/v1/report/search" : {
+    "//api.xbrl.us/api/v1/report/search" : {
       "summary" : "Request facts from XBRL filings based on search parameters.",
       "get" : {
         "operationId" : "getReportDetails",
@@ -581,7 +581,7 @@
         }
       }
     },
-    "https://api.xbrl.us/api/v1/report/{report.id}" : {
+    "//api.xbrl.us/api/v1/report/{report.id}" : {
       "summary" : "Request report from XBRL filings based on report id parameters.",
       "get" : {
         "operationId" : "getReportDetailsById",
@@ -647,7 +647,7 @@
         }
       }
     },
-    "https://api.xbrl.us/api/v1/report/{report.id}/fact/search" : {
+    "//api.xbrl.us/api/v1/report/{report.id}/fact/search" : {
       "summary" : "Request report from XBRL filings based on report id parameters.",
       "get" : {
         "operationId" : "getReportFactDetailsById",
@@ -797,7 +797,7 @@
         }
       }
     },
-    "https://api.xbrl.us/api/v1/report/fact/search" : {
+    "//api.xbrl.us/api/v1/report/fact/search" : {
       "summary" : "Request report from XBRL filings based on report id parameters.",
       "get" : {
         "operationId" : "getReportFactDetailsBySearch",
@@ -951,7 +951,7 @@
         }
       }
     },
-    "https://api.xbrl.us/api/v1/entity/{entity.id}/report/search" : {
+    "//api.xbrl.us/api/v1/entity/{entity.id}/report/search" : {
       "summary" : "Request entity information based on the entity identifier. The entity ID is an internal id used by the API.",
       "get" : {
         "operationId" : "getEntityReportDetailsBasedOnID",
@@ -1045,7 +1045,7 @@
         }
       }
     },
-    "https://api.xbrl.us/api/v1/entity/report/search" : {
+    "//api.xbrl.us/api/v1/entity/report/search" : {
       "summary" : "Request facts from XBRL filings based on search parameters.",
       "get" : {
         "operationId" : "getEntityReportDetails",
@@ -1139,7 +1139,7 @@
         }
       }
     },
-    "https://api.xbrl.us/api/v1/entity/{entity.id}" : {
+    "//api.xbrl.us/api/v1/entity/{entity.id}" : {
       "summary" : "Request entity information based on the entity identifier. The entity ID is an internal id used by the API.",
       "get" : {
         "operationId" : "getEntityDetailsBasedOnID",
@@ -1205,7 +1205,7 @@
         }
       }
     },
-    "https://api.xbrl.us/api/v1/assertion/search" : {
+    "//api.xbrl.us/api/v1/assertion/search" : {
       "summary" : "Request errors from XBRL filings based on search parameters.",
       "get" : {
         "operationId" : "getAssertionDetails",
@@ -1285,7 +1285,7 @@
         }
       }
     },
-    "https://api.xbrl.us/api/v1/assertion/validate" : {
+    "//api.xbrl.us/api/v1/assertion/validate" : {
       "summary" : "Request errors from XBRL filings based on search parameters.",
       "post" : {
         "operationId" : "validateFiling",
@@ -1358,7 +1358,7 @@
         }
       }
     },
-    "https://api.xbrl.us/api/v1/dts/search" : {
+    "//api.xbrl.us/api/v1/dts/search" : {
       "summary" : "Used to search taxonomies (dts) used in filings.  Each dts represents a unique identifier for a collection of taxonomy schema used by .",
       "get" : {
         "operationId" : "getDTSDetails",
@@ -1431,7 +1431,7 @@
         }
       }
     },
-    "https://api.xbrl.us/api/v1/dts/{dts.id}/concept/search" : {
+    "//api.xbrl.us/api/v1/dts/{dts.id}/concept/search" : {
       "summary" : "Request errors from XBRL filings based on search parameters.",
       "get" : {
         "operationId" : "getConceptDetailsByDTS",
@@ -1509,7 +1509,7 @@
         }
       }
     },
-    "https://api.xbrl.us/api/v1/dts/{dts.id}/concept/{concept.local-name}" : {
+    "//api.xbrl.us/api/v1/dts/{dts.id}/concept/{concept.local-name}" : {
       "summary" : "Request errors from XBRL filings based on search parameters.",
       "get" : {
         "operationId" : "getConceptDetailsByDTSAndLocalName",
@@ -1584,7 +1584,7 @@
         }
       }
     },
-    "https://api.xbrl.us/api/v1/dts/{dts.id}/concept/{concept.local-name}/label" : {
+    "//api.xbrl.us/api/v1/dts/{dts.id}/concept/{concept.local-name}/label" : {
       "summary" : "Request errors from XBRL filings based on search parameters.",
       "get" : {
         "operationId" : "getLabelDetailsByDTSAndLocalName",
@@ -1659,7 +1659,7 @@
         }
       }
     },
-    "https://api.xbrl.us/api/v1/dts/{dts.id}/concept/{concept.local-name}/reference" : {
+    "//api.xbrl.us/api/v1/dts/{dts.id}/concept/{concept.local-name}/reference" : {
       "summary" : "Request errors from XBRL filings based on search parameters.",
       "get" : {
         "operationId" : "getReferenceDetailsByDTSAndLocalName",
@@ -1734,7 +1734,7 @@
         }
       }
     },
-    "https://api.xbrl.us/api/v1/dts/{dts.id}/network" : {
+    "//api.xbrl.us/api/v1/dts/{dts.id}/network" : {
       "summary" : "Request network from XBRL filings based on a provided dts.",
       "get" : {
         "operationId" : "getNetworkDetailsByDTS",
@@ -1800,7 +1800,7 @@
         }
       }
     },
-    "https://api.xbrl.us/api/v1/dts/{dts.id}/network/search" : {
+    "//api.xbrl.us/api/v1/dts/{dts.id}/network/search" : {
       "summary" : "Request network details from XBRL filings based on a provided dts.",
       "get" : {
         "operationId" : "getNetworkDetailsWithSearchByDTS",
@@ -1896,7 +1896,7 @@
         }
       }
     },
-    "https://api.xbrl.us/api/v1/concept/search" : {
+    "//api.xbrl.us/api/v1/concept/search" : {
       "summary" : "Request errors from XBRL filings based on search parameters.",
       "get" : {
         "operationId" : "getConceptDetails",
@@ -1967,7 +1967,7 @@
         }
       }
     },
-    "https://api.xbrl.us/api/v1/concept/{concept.local-name}/search" : {
+    "//api.xbrl.us/api/v1/concept/{concept.local-name}/search" : {
       "summary" : "Request errors from XBRL filings based on search parameters.",
       "get" : {
         "operationId" : "getConceptDetailsByName",
@@ -2047,7 +2047,7 @@
         }
       }
     },
-    "https://api.xbrl.us/api/v1/label/{dts.id}/search" : {
+    "//api.xbrl.us/api/v1/label/{dts.id}/search" : {
       "summary" : "Request errors from XBRL filings based on search parameters.",
       "get" : {
         "operationId" : "getlabelsBasedOnDTS",
@@ -2124,7 +2124,7 @@
         }
       }
     },
-    "https://api.xbrl.us/api/v1/label/search" : {
+    "//api.xbrl.us/api/v1/label/search" : {
       "summary" : "Request errors from XBRL filings based on search parameters.",
       "get" : {
         "operationId" : "getlabels",
@@ -2203,7 +2203,7 @@
         }
       }
     },
-    "https://api.xbrl.us/api/v1/network/{network.id}/relationship/search" : {
+    "//api.xbrl.us/api/v1/network/{network.id}/relationship/search" : {
       "summary" : "Request errors from XBRL filings based on search parameters.",
       "get" : {
         "operationId" : "getNetworkRelationships",
@@ -2303,7 +2303,7 @@
         }
       }
     },
-    "https://api.xbrl.us/api/v1/network/relationship/search" : {
+    "//api.xbrl.us/api/v1/network/relationship/search" : {
       "summary" : "Request networks and relationships from XBRL filings based on search parameters.",
       "get" : {
         "operationId" : "getNetworkRelationshipsNoID",
@@ -2395,7 +2395,7 @@
         }
       }
     },
-    "https://api.xbrl.us/api/v1/network/{network.id}" : {
+    "//api.xbrl.us/api/v1/network/{network.id}" : {
       "summary" : "Request networks  from XBRL filings based on search parameters.",
       "get" : {
         "operationId" : "getNetworkOnID",
@@ -2462,7 +2462,7 @@
         }
       }
     },
-    "https://api.xbrl.us/api/v1/relationship/search" : {
+    "//api.xbrl.us/api/v1/relationship/search" : {
       "summary" : "Request networks and relationships from XBRL filings based on search parameters.",
       "get" : {
         "operationId" : "getRelationships",
@@ -2552,7 +2552,7 @@
         }
       }
     },
-    "https://api.xbrl.us/api/v1/relationship/tree/search" : {
+    "//api.xbrl.us/api/v1/relationship/tree/search" : {
       "summary" : "Request networks and relationships from XBRL filings based on search parameters.",
       "get" : {
         "operationId" : "getRelationshipsAsTree",
@@ -2651,7 +2651,7 @@
         }
       }
     },
-    "https://api.xbrl.us/api/v1/document/search" : {
+    "//api.xbrl.us/api/v1/document/search" : {
       "summary" : "Request networks and relationships from XBRL filings based on search parameters.",
       "get" : {
         "operationId" : "getDocumentInfo",
@@ -2722,7 +2722,7 @@
         "type" : "oauth2",
         "flows" : {
           "password" : {
-            "tokenUrl" : "https://api.xbrl.us/oauth2/token"
+            "tokenUrl" : "//api.xbrl.us/oauth2/token"
           }
         }
       },
