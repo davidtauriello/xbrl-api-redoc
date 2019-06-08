@@ -1,0 +1,8 @@
+specFileName: spec/XBRLAPI.yaml
+apiTitle: XBRL API
+splitSpec: false
+codeSamples: false
+swaggerUI: true
+travis: true
+repo: davidtauriello/xbrl-api
+oasVersion: 3.0.0
