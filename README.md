@@ -1,4 +1,4 @@
-# XBRL API OpenAPI Specification
+# XBRL US API OpenAPI Specification
 [![Build Status](https://travis-ci.com/davidtauriello/xbrl-api.svg?branch=master)](https://travis-ci.com/davidtauriello/xbrl-api)
 ## Steps to finish
 

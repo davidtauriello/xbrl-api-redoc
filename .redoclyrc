@@ -1,5 +1,5 @@
 specFileName: spec/XBRLAPI.yaml
-apiTitle: XBRL API
+apiTitle: XBRL US API
 splitSpec: false
 codeSamples: false
 swaggerUI: true
