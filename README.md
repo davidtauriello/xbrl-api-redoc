@@ -1,4 +1,4 @@
-# XBRL US API OpenAPI Specification
+# Petstore Demo OpenAPI Specification
 [![Build Status](https://travis-ci.com/davidtauriello/xbrl-api.svg?branch=master)](https://travis-ci.com/davidtauriello/xbrl-api)
 ## Steps to finish
 

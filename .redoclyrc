@@ -1,0 +1,8 @@
+specFileName: spec/petstore.yaml
+apiTitle: Petstore Demo
+splitSpec: false
+codeSamples: false
+swaggerUI: true
+travis: true
+repo: davidtauriello/xbrl-api
+oasVersion: 3.0.0
