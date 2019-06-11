@@ -1,0 +1,7 @@
+specFileName: spec/petstore.yaml
+apiTitle: Swagger Petstore
+splitSpec: false
+codeSamples: false
+swaggerUI: true
+travis: false
+oasVersion: '2.0'
