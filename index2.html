@@ -7,6 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:300,400,700" rel="stylesheet">
 
+<script
+  src="https://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"></script>
+
+<script>
+var defaultHost = "qa-21-www.edmunds.com" // apply this host in case the swagger.json doesn't have a .host property
+var redocLoadingWaitTime = 2000;  // in miliseconds, set this wait time so that try-out is initialized after redoc is fully loaded.
+</script>
+
+<script src="https://raw.githubusercontent.com/davidtauriello/xbrl-api-redoc/gh-pages/scripts/redoc-tryout.js"></script>
+
     <!--
     ReDoc doesn't change outer page styles
     -->
@@ -34,16 +46,3 @@
   </div>
 
 </html>
-
-
-<script
-  src="https://code.jquery.com/jquery-1.12.4.min.js"
-  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
-  crossorigin="anonymous"></script>
-
-<script>
-var defaultHost = "qa-21-www.edmunds.com" // apply this host in case the swagger.json doesn't have a .host property
-var redocLoadingWaitTime = 2000;  // in miliseconds, set this wait time so that try-out is initialized after redoc is fully loaded.
-</script>
-
-<script src="https://raw.githubusercontent.com/davidtauriello/xbrl-api-redoc/gh-pages/scripts/redoc-tryout.js"></script>
